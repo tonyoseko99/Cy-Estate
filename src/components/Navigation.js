@@ -19,35 +19,21 @@ const items = [
     disabled: false,
   },
   {
-    label: "Navigation Three - Submenu",
+    label: "Apartments",
     key: "SubMenu",
     icon: <SettingOutlined />,
     children: [
       {
         type: "group",
-        label: "Item 1",
+        label: "Category",
         children: [
           {
-            label: "Option 1",
+            label: "One Bedroom",
             key: "setting:1",
           },
           {
-            label: "Option 2",
-            key: "setting:2",
-          },
-        ],
-      },
-      {
-        type: "group",
-        label: "Item 2",
-        children: [
-          {
-            label: "Option 3",
-            key: "setting:3",
-          },
-          {
-            label: "Option 4",
-            key: "setting:4",
+            label: "Two Bedroom",
+            key: "Two Bedroom",
           },
         ],
       },
@@ -56,7 +42,7 @@ const items = [
   {
     label: (
       <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
-        Navigation Four - Link
+        Contact Us
       </a>
     ),
     key: "alipay",

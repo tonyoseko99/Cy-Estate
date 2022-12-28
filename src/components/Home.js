@@ -102,8 +102,12 @@ const Home = () => {
               )}
               {houses.slice(currentIndex, currentIndex + 2).map((house) => (
                 <div className="carousel__slide" key={house.id}>
-                    <img className="carousel-img" src={house.image} alt={house.title} />
-                    <h3 className="carousel-h3">{house.title}</h3>
+                  <img
+                    className="carousel-img"
+                    src={house.image}
+                    alt={house.title}
+                  />
+                  <h3 className="carousel-h3">{house.title}</h3>
                 </div>
               ))}
               {currentIndex + 2 < houses.length && (

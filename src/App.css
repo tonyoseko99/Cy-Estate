@@ -106,6 +106,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 50px;
+  padding: 30px 0;
 }
 
 .home__container3__properties {
@@ -113,7 +114,6 @@
   justify-content: space-between;
   align-items: center;
   margin-top: 50px;
-  border: 3px solid red;
 }
 
 .carousel {
@@ -158,4 +158,12 @@
   max-width: 100%;
   max-height: 100%;
   border-radius: 30px;
+}
+
+.footer{
+  background-color: #282c34;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

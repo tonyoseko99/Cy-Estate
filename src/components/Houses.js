@@ -1,7 +1,7 @@
 import react, { useState, useEffect } from "react";
 import axios from "axios";
 
-import { Card } from "antd";
+import { Card, Divider } from "antd";
 const { Meta } = Card;
 
 const Houses = () => {
@@ -27,15 +27,16 @@ const Houses = () => {
   }, []);
 
   return (
-    <>
+    <div>
       {loading ? (
         <div>Loading...</div>
       ) : error ? (
         <div>Error</div>
       ) : (
-        <div>
+        <div className="houses-container">
           {houses.map((house) => (
             <Card
+              className="houses__card"
               key={house.id}
               hoverable
               style={{
@@ -44,11 +45,12 @@ const Houses = () => {
               cover={<img alt={house.title} src={house.image} />}
             >
               <Meta title={house.title} description={house.description} />
+              <Divider />
             </Card>
           ))}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

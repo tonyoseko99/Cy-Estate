@@ -66,3 +66,16 @@
   margin-left: 100px;
   text-align: left;
 }
+
+.houses-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.houses__card {
+  margin: 10px;
+  min-width: 240px;
+  max-width: 240px;
+}
+

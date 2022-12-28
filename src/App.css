@@ -67,6 +67,33 @@
   text-align: left;
 }
 
+.home__container2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.home__container2__details{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+
+.home__container2__details h3{
+  font-size: 20px;
+  font-weight: 700;
+  margin: 10px;
+}
+
+.home__container2__details p{
+  font-size: 15px;
+  font-weight: 400;
+  margin: 10px;
+}
+
 .houses-container {
   display: flex;
   flex-wrap: wrap;

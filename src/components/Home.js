@@ -1,5 +1,7 @@
 import react from "react";
 import { Layout } from "antd";
+
+import Houses from "./Houses";
 const { Content } = Layout;
 
 const Home = () => {
@@ -18,6 +20,9 @@ const Home = () => {
               purchase or rental houses.
             </p>
           </div>
+        </Content>
+        <Content className="home__container2">
+            <Houses />
         </Content>
       </Layout>
     </>

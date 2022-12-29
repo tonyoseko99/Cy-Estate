@@ -1,4 +1,5 @@
 import react, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import Houses from "./Houses";
 import { Layout, Divider, Card, Button } from "antd";
@@ -117,9 +118,9 @@ const Home = () => {
             {/* link to view all houses and pass the fetchData function as props */}
           </div>
           <div className="home__container3__properties__viewall">
-            <a href="/houses">
-              <Button type="primary">View All Houses</Button>
-            </a>
+            <Link to="/houses">
+              <Button type="primary">View All</Button>
+            </Link>
           </div>
         </Content>
       </Layout>

@@ -29,7 +29,7 @@ const House = () => {
           <div className="house__info">
             <h1 className="house__title">{house.title}</h1>
             <p className="house__description">{house.description}</p>
-            <p className="house__price">Price: {house.price}</p>
+            <p className="house__price">Price: {house.price}.00 USD</p>
             <p className="house__location">Location: {house.address}</p>
             <p className="house__bedrooms">Bedrooms: {house.bedrooms}</p>
             <Divider />

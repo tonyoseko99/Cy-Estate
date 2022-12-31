@@ -1,22 +1,25 @@
-import react, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
+import { Card, Divider, Button } from "antd";
 
-import { Card, Divider } from "antd";
 const { Meta } = Card;
 
 const Houses = () => {
   const [houses, setHouses] = useState([]);
 
   useEffect(() => {
+    const getHouses = async () => {
+      try {
+        const result = await axios.get("http://localhost:4000/houses");
+        setHouses(result.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
     getHouses();
   }, []);
-
-  async function getHouses() {
-    let result = await fetch("http://localhost:4000/houses");
-    result = await result.json();
-    console.log(`result: ${result}`);
-    setHouses(result);
-  }
 
   return (
     <>
@@ -24,19 +27,18 @@ const Houses = () => {
         <h1 className="houses-h1">Houses</h1>
         <Divider />
         {houses.map((house) => (
-          <div className="houses__container">
+          <div className="houses__container" key={house.id}>
             <Card
-              onClick={() => {
-                window.location.href = `/house/${house.id}`;
-              }}
               className="houses__card"
-              key={house.id}
               hoverable
               style={{ width: 240 }}
               cover={<img alt={house.title} src={house.image} />}
             >
               <Meta title={house.title} description={house.description} />
               <Divider />
+              <Link to={`/house/${house.id}`}>
+                <Button type="primary">View House</Button>
+              </Link>
             </Card>
           </div>
         ))}

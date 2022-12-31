@@ -26,6 +26,10 @@ const Houses = () => {
         {houses.map((house) => (
           <div className="houses__container">
             <Card
+              onClick={() => {
+                window.location.href = `/house/${house.id}`;
+              }}
+              className="houses__card"
               key={house.id}
               hoverable
               style={{ width: 240 }}

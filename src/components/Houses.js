@@ -5,7 +5,7 @@ import { Card, Divider, Button } from "antd";
 
 const { Meta } = Card;
 
-const Houses = ({ filter }) => {
+const Houses = () => {
   const [houses, setHouses] = useState([]);
 
   useEffect(() => {
@@ -24,29 +24,27 @@ const Houses = ({ filter }) => {
   return (
     <>
       <div className="houses">
-        <h1 className="houses-h1">{filter} Bedroomed Houses</h1>
+        <h1 className="houses-h1"> Houses</h1>
         <Divider />
 
-        {houses
-          .filter((house) => house.bedrooms === filter)
-          .map((house) => (
-            <>
-              <div className="houses__container" key={house.id}>
-                <Card
-                  className="houses__card"
-                  hoverable
-                  style={{ width: 240 }}
-                  cover={<img alt={house.title} src={house.image} />}
-                >
-                  <Meta title={house.title} description={house.description} />
-                  <Divider />
-                  <Link to={`/house/${house.id}`}>
-                    <Button type="primary">View House</Button>
-                  </Link>
-                </Card>
-              </div>
-            </>
-          ))}
+        {houses.map((house) => (
+          <>
+            <div className="houses__container" key={house.id}>
+              <Card
+                className="houses__card"
+                hoverable
+                style={{ width: 240 }}
+                cover={<img alt={house.title} src={house.image} />}
+              >
+                <Meta title={house.title} description={house.description} />
+                <Divider />
+                <Link to={`/house/${house.id}`} target="_blank">
+                  <Button type="primary">View House</Button>
+                </Link>
+              </Card>
+            </div>
+          </>
+        ))}
       </div>
     </>
   );

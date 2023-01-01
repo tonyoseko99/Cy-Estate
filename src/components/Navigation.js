@@ -25,13 +25,17 @@ const items = [
   },
   {
     label: "Apartments",
-    key: "All",
+    key: "Apartments",
     icon: <SettingOutlined />,
     children: [
       {
         type: "group",
         label: "Categories",
         children: [
+          {
+            label: "All",
+            key: "All",
+          },
           {
             label: "One Bedroom",
             key: "one-bedroom",
@@ -93,7 +97,6 @@ const Navigation = () => {
           items={items}
         />
       </Header>
-      {filter && <Houses filter={filter} />}
     </Layout>
   );
 };

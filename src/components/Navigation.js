@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Houses from "./Houses";
 import {
   AppstoreOutlined,
   HomeOutlined,
@@ -8,7 +9,11 @@ import { Layout, Menu } from "antd";
 const { Header } = Layout;
 const items = [
   {
-    label: "Cy-Estate",
+    label: (
+      <a href="/" rel="noopener noreferrer">
+        Cy-Estate
+      </a>
+    ),
     key: "logo",
     icon: <HomeOutlined />,
   },
@@ -20,20 +25,20 @@ const items = [
   },
   {
     label: "Apartments",
-    key: "SubMenu",
+    key: "All",
     icon: <SettingOutlined />,
     children: [
       {
         type: "group",
-        label: "Category",
+        label: "Categories",
         children: [
           {
             label: "One Bedroom",
-            key: "setting:1",
+            key: "one-bedroom",
           },
           {
             label: "Two Bedroom",
-            key: "Two Bedroom",
+            key: "two-bedroom",
           },
         ],
       },
@@ -63,9 +68,18 @@ const items = [
 
 const Navigation = () => {
   const [current, setCurrent] = useState("mail");
+  const [filter, setFilter] = useState("");
   const onClick = (e) => {
     console.log("click ", e);
     setCurrent(e.key);
+
+    if (e.key === "one-bedroom") {
+      setFilter(1);
+    } else if (e.key === "two-bedroom") {
+      setFilter(2);
+    } else if (e.key === "All") {
+      setFilter("");
+    }
   };
   return (
     <Layout>
@@ -79,6 +93,7 @@ const Navigation = () => {
           items={items}
         />
       </Header>
+      {filter && <Houses filter={filter} />}
     </Layout>
   );
 };

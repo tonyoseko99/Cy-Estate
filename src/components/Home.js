@@ -2,7 +2,7 @@ import react, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Houses from "./Houses";
-import { Layout, Divider, Card, Button } from "antd";
+import { Layout, Divider, Card, Button, Carousel } from "antd";
 import { BankOutlined, WalletOutlined, HomeOutlined } from "@ant-design/icons";
 const { Meta } = Card;
 
@@ -11,14 +11,6 @@ const { Content } = Layout;
 const Home = () => {
   // slider state and functions
   const [currentIndex, setCurrentIndex] = useState(0);
-
-  const handleRightArrowClick = () => {
-    setCurrentIndex((currentIndex) => currentIndex + 2);
-  };
-
-  const handleLeftArrowClick = () => {
-    setCurrentIndex((currentIndex) => currentIndex - 2);
-  };
 
   //   use axios to fetch data from the backend
 
@@ -96,31 +88,28 @@ const Home = () => {
           <div className="home__container3__content">
             <h2 className="home-h2">Featured Properties</h2>
           </div>
-          <div className="home__container3__properties">
-            <div className="carousel">
-              {currentIndex > 0 && (
-                <button onClick={handleLeftArrowClick}>&lt;</button>
-              )}
-              {houses.slice(currentIndex, currentIndex + 2).map((house) => (
-                <div className="carousel__slide" key={house.id}>
-                  <img
-                    className="carousel-img"
-                    src={house.image}
-                    alt={house.title}
-                  />
-                  <h3 className="carousel-h3">{house.title}</h3>
+
+          <Carousel
+            autoplay
+            dots
+            dotPosition="bottom"
+            dotStyle={{ backgroundColor: "red" }}
+            className="carousel"
+          >
+            {houses.slice(currentIndex, currentIndex + 2).map((house) => (
+              <Card key={house.id} style={{ margin: "16px" }}>
+                <div className="carousel-item">
+                  <img alt={house.title} src={house.image} />
+                  <h1>{house.title}</h1>
                 </div>
-              ))}
-              {currentIndex + 2 < houses.length && (
-                <button onClick={handleRightArrowClick}>&gt;</button>
-              )}
-            </div>
-            {/* link to view all houses and pass the fetchData function as props */}
-          </div>
-          <div className="home__container3__properties__viewall">
-            <Link to="/houses">
-              <Button type="primary">View All</Button>
-            </Link>
+                <p>{house.description}</p>
+              </Card>
+            ))}
+          </Carousel>
+          <div className="home__container3__button">
+            <Button type="dark" size="large">
+              <Link to="/houses">View All</Link>
+            </Button>
           </div>
         </Content>
       </Layout>
